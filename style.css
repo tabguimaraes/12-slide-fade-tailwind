@@ -1,0 +1,35 @@
+.carrossel {
+  animation:
+    slider 12s infinite,
+    fade 4s;
+}
+
+@keyframes slider {
+  0%,
+  33% {
+    background-image: url(./img/foto1.jpeg);
+    --text-description: "Mesa de ping pong";
+  }
+  34%,
+  66% {
+    background-image: url(./img/foto2.jpeg);
+    --text-description: "Biblioteca";
+  }
+  67%,
+  100% {
+    background-image: url(./img/foto3.jpeg);
+    --text-description: "Refeitório";
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
