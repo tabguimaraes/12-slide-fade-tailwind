@@ -169,12 +169,6 @@
   .grid {
     display: grid;
   }
-  .hidden {
-    display: none;
-  }
-  .table {
-    display: table;
-  }
   .h-\[80\%\] {
     height: 80%;
   }
@@ -184,11 +178,11 @@
   .w-\[80\%\] {
     width: 80%;
   }
-  .border-collapse {
-    border-collapse: collapse;
+  .animate-\[var\(--fade-animation\)\] {
+    animation: var(--fade-animation);
   }
-  .resize {
-    resize: both;
+  .animate-\[var\(--slider-animation\)\] {
+    animation: var(--slider-animation);
   }
   .place-items-center {
     place-items: center;
@@ -199,10 +193,6 @@
   .rounded-xl {
     border-radius: var(--radius-xl);
   }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
   .bg-\[\#0003\] {
     background-color: #0003;
   }
@@ -212,16 +202,9 @@
   .bg-center {
     background-position: center;
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .shadow-xl {
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .after\:absolute {
     &::after {
@@ -289,10 +272,34 @@
     }
   }
 }
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
+:root {
+  --slider-animation: slider 12s infinite;
+  --fade-animation: fade 4s infinite;
+}
+@keyframes slider {
+  0%, 33% {
+    background-image: url(../img/foto1.jpeg);
+    --text-description: "Mesa de ping pong";
+  }
+  34%, 66% {
+    background-image: url(../img/foto2.jpeg);
+    --text-description: "Biblioteca";
+  }
+  67%, 100% {
+    background-image: url(../img/foto3.jpeg);
+    --text-description: "Refeitório";
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  15%, 85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @property --tw-shadow {
   syntax: "*";
@@ -359,11 +366,6 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-content {
   syntax: "*";
   initial-value: "";
@@ -372,7 +374,6 @@
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
-      --tw-border-style: solid;
       --tw-shadow: 0 0 #0000;
       --tw-shadow-color: initial;
       --tw-shadow-alpha: 100%;
@@ -387,7 +388,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-content: "";
     }
   }
